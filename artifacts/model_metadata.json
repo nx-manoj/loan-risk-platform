@@ -1,0 +1,10 @@
+{
+    "model_name": "XGBoost Classifier",
+    "model_version": "1.0.0",
+    "problem_type": "Binary Classification",
+    "target": "loan_status",
+    "positive_class": "Default",
+    "negative_class": "Non-Default",
+    "roc_auc": 0.7361015987788075,
+    "threshold": 0.2253725528717041
+}
