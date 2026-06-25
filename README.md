@@ -42,7 +42,7 @@ loan-risk-platform/
 Clone the repository.
 
 ```bash
-git clone https://github.com/<your-username>/loan-risk-platform.git
+git clone https://github.com/nx-manoj/loan-risk-platform.git
 cd loan-risk-platform
 ```
 
