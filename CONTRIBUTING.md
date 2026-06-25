@@ -1,60 +1,68 @@
-# Contributing Guide
+# Contributing
 
-Thank you for contributing to Loan Risk Platform. This document defines the collaboration standards for this repository.
+Thanks for taking the time to check out this project.
+
+This project is primarily maintained as a personal learning and portfolio project. Contributions, suggestions, and bug reports are always welcome.
+
+## Reporting Issues
+
+If you find a bug or have an idea for an improvement, feel free to open an issue describing:
+
+* What happened
+* Steps to reproduce the problem
+* Expected behavior (if applicable)
+
+## Making Changes
+
+If you'd like to contribute:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Test your changes.
+5. Open a pull request with a short description of what you changed.
 
 ## Branch Naming
 
-Use descriptive, lowercase branch names with one of these prefixes:
+Suggested branch names:
 
-- `feature/<short-description>`
-- `bugfix/<short-description>`
-- `chore/<short-description>`
-- `docs/<short-description>`
+```text
+feature/<description>
+fix/<description>
+docs/<description>
+chore/<description>
+```
 
 Examples:
 
-- `feature/loan-default-baseline-model`
-- `bugfix/missing-feature-scaling`
-
-## Commit Message Convention
-
-Follow a conventional style:
-
 ```text
-<type>(<scope>): <short summary>
+feature/add-batch-prediction
+fix/api-validation
+docs/update-readme
 ```
 
-Common commit types:
+## Commit Messages
 
-- `feat`: New functionality
-- `fix`: Bug fix
-- `docs`: Documentation updates
-- `refactor`: Internal code improvement
-- `test`: Test updates
-- `chore`: Maintenance work
+Use clear and descriptive commit messages.
 
-Example:
+Examples:
 
 ```text
-feat(models): add baseline training pipeline
+feat: add prediction endpoint
+fix: handle missing features
+docs: update README
+test: add API tests
 ```
-
-## Pull Request Process
-
-1. Create a branch from the latest default branch.
-2. Keep PRs focused on a single concern.
-3. Ensure code, tests, and docs are updated as needed.
-4. Open a PR with:
-   - Clear title and summary
-   - Problem statement and solution
-   - Testing notes
-   - Related issue (if applicable)
-5. Address review feedback and keep discussion in the PR.
 
 ## Code Style
 
-- Follow PEP 8 for Python formatting and naming.
-- Prefer explicit, typed, and readable code.
-- Keep modules cohesive and avoid large multi-purpose files.
-- Use docstrings for public modules, classes, and functions.
-- Avoid committing secrets, local environment files, or generated artifacts.
+* Follow PEP 8 for Python code.
+* Keep code readable and well organized.
+* Add comments only when they improve understanding.
+* Write tests for new functionality whenever possible.
+
+## Questions
+
+If you have questions or suggestions, feel free to open an issue or start a discussion.
+
+Thanks for your interest in the project!
