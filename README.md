@@ -1,116 +1,85 @@
-# Loan Risk Platform
+# Enterprise Loan Risk Intelligence Platform
 
-## Project Overview
+FastAPI backend for enterprise loan default risk prediction using pre-trained model artifacts.
 
-Loan Risk Platform is an enterprise-focused machine learning project for predicting loan default risk and supporting credit decision workflows with explainable, maintainable model pipelines.
-
-## Business Problem
-
-Traditional loan risk decisions can be slow, inconsistent, and difficult to scale across large applicant volumes. The platform addresses this by standardizing data workflows and model-driven risk estimation to improve decision quality and operational speed.
-
-## Objectives
-
-1. Build a clean, production-ready Python project foundation.
-2. Enable reliable data ingestion, feature engineering, and model training workflows.
-3. Prepare for explainability, model monitoring, and API serving in later phases.
-4. Support maintainable collaboration practices for engineering and ML teams.
-
-## Tech Stack
-
-- Python 3.x
-- Pandas / NumPy
-- Scikit-learn
-- FastAPI (planned service layer)
-- SHAP (planned explainability)
-- Docker
-- GitHub Actions
-
-## Folder Structure
-
-```text
-loan-risk-platform/
-├── app/
-│   ├── __init__.py
-│   └── main.py
-├── data/
-├── docs/
-│   ├── architecture.md
-│   └── roadmap.md
-├── frontend/
-├── models/
-├── notebooks/
-├── reports/
-├── src/
-│   ├── __init__.py
-│   ├── api/
-│   │   └── __init__.py
-│   ├── config/
-│   │   └── __init__.py
-│   ├── data/
-│   │   └── __init__.py
-│   ├── features/
-│   │   └── __init__.py
-│   ├── models/
-│   │   └── __init__.py
-│   └── utils/
-│       └── __init__.py
-├── tests/
-├── .env.example
-├── .gitignore
-├── CONTRIBUTING.md
-├── LICENSE
-├── pyproject.toml
-├── README.md
-└── requirements.txt
-```
-
-## Installation Instructions
-
-1. Clone the repository.
-2. Navigate to the project root.
-3. Install dependencies from `requirements.txt`.
+## Installation
 
 ```bash
-pip install -r requirements.txt
+git clone <your-repo-url>
+cd loan-risk-platform
 ```
 
-## Virtual Environment Setup
+## Virtual Environment
+
+### Windows (PowerShell)
 
 ```bash
 python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
 
-Activate the virtual environment:
-
-- **Windows (PowerShell):**
-  ```bash
-  .\.venv\Scripts\Activate.ps1
-  ```
-- **macOS/Linux:**
-  ```bash
-  source .venv/bin/activate
-  ```
-
-Create your local environment file from the template:
+### macOS/Linux
 
 ```bash
-copy .env.example .env
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## Running the Project
-
-Use the application entrypoint module:
+## Running FastAPI
 
 ```bash
-python -m app.main
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-> Phase 1 focuses on project setup and structure. API endpoints are intentionally not implemented yet.
+## Swagger URL
 
-## Future Roadmap
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
 
-High-level roadmap items are maintained in `docs/roadmap.md`. Near-term priorities include data validation, baseline model training pipeline, evaluation reporting, and service deployment readiness.
+## Docker Usage
 
-## License
+### Build and run with Docker Compose
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+```bash
+docker compose up --build
+```
+
+### Stop containers
+
+```bash
+docker compose down
+```
+
+## Running Tests
+
+```bash
+pytest -q
+```
+
+## API Example
+
+### Health Check
+
+```bash
+curl -X GET "http://localhost:8000/health"
+```
+
+### Prediction Request
+
+```bash
+curl -X POST "http://localhost:8000/predict" \
+  -H "Content-Type: application/json" \
+  -d @notebooks/sample_request.json
+```
+
+### Prediction Response (example)
+
+```json
+{
+  "prediction": 0,
+  "prediction_label": "Fully Paid",
+  "probability": 0.1234
+}
+```
